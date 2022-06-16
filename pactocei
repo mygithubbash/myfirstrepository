@@ -1,0 +1,54 @@
+
+
+import time
+
+def people():
+    name=input('For which person you want to do the data opertion '
+          '1=topsy '
+          '2=mopsy '
+          '3=lopsy')
+    if name=='1':
+         topsy()
+    else:
+        print('please enter valid name')
+        people()
+def topsy():
+    topsylist = {'breakfast': ['Tea', 'coffiee', 'sandwich'], 'lunch': ['rise', 'pizza'],
+                 'dinaer': ['rise', 'burger', 'curry']}
+
+
+    def topsylst():
+        data = input('please enter our choise r=data retrive'
+                 ' w=data write')
+
+        if data == 'r':
+             ritrive()
+        elif data == 'w':
+             write()  # data_write()
+        else:
+            print('please enter valid choise')
+            topsylst()
+    def ritrive():
+        nonlocal topsylist
+        t=int(input('please enter time between 0 to 24'))
+
+        if t< 12:
+             print(topsylist['breakfast'])
+        elif t> 12 and t<18:
+            print(topsylist['lunch'])
+        elif t> 18 and t<24:
+             print(topsylist['dinaer'])
+        else:
+            print('please enter valid time')
+    def write():
+            nonlocal topsylist
+            print('which item yo want to update ',topsylist.keys())
+            itm=input()
+            if itm=='breakfast':
+                #up={'breakfast'}
+                topsylist.pop('breakfast')
+                print(topsylist)
+
+    topsylst()
+people()
+
