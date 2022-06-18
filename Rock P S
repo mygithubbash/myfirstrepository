@@ -1,0 +1,114 @@
+import random
+
+
+lst=['Rock', 'Paper', 'Scissors']
+
+Attempt = 10
+win = 0
+botwin = 0
+Tie = 0
+
+def Rock(choise, bot):
+
+         if bot=='Scissor':
+            print('Your choise is : ',choise,' and bot choise is : ',bot)
+            global win
+            win+=1
+            return win
+         elif bot=='Paper':
+           print('Your choise is : ', choise, ' and bot choise is : ', bot)
+           global botwin
+           botwin+=1
+           return botwin
+         else:
+           print('Your choise is : ', choise, ' and bot choise is : ', bot)
+           global Tie
+           Tie+=1
+           return Tie
+def Paper(choise, bot):
+
+         if bot=='Rock':
+            print('Your choise is : ', choise, ' and bot choise is : ', bot)
+            global  win
+            win+=1
+            return win
+         elif bot=='Scissors':
+           print('Your choise is : ', choise, ' and bot choise is : ', bot)
+           global botwin
+           botwin+=1
+           return botwin
+         else:
+           print('Your choise is : ', choise, ' and bot choise is : ', bot)
+           global Tie
+           Tie+=1
+           return Tie
+def Scissors(choise, bot):
+
+         if bot=='Paper':
+            print('Your choise is : ', choise, ' and bot choise is : ', bot)
+            global  win
+            win+=1
+            return win
+         elif bot=='Rock':
+           print('Your choise is : ', choise, ' and bot choise is : ', bot)
+           global botwin
+           botwin+=1
+           return botwin
+         else:
+           print('Your choise is : ', choise, ' and bot choise is : ', bot)
+           global Tie
+           Tie+=1
+           return Tie
+def play():
+
+
+    global lst
+    global win
+    global botwin
+    global Attempt
+    while Attempt>0:
+        choise=input('select your choise Rock, Paper, Scissors')
+        bot=random.choice(lst)
+        if choise == 'Rock':
+             Rock(choise, bot)
+        elif choise == 'Paper':
+             Paper(choise, bot)
+        elif choise == 'Scissors':
+            Scissors(choise, bot)
+        else:
+            print('please select valid choise')
+        Attempt-=1
+
+    if win > botwin:
+     print('Your score is greater than ',win,' the bot score ',botwin,' so you are winner...')
+     again = input('Do yo wanna play this game again y= Yes or n=No')
+     if again == 'y':
+        Attempt = 10
+        win = 0
+        botwin = 0
+        play()
+     else:
+        print('BBye....')
+
+    elif win < botwin:
+     print('Your score is less than ',win,' the bot score ',botwin,' so bot is winner...')
+     again = input('Do yo wanna play this game again y= Yes or n=No')
+     if again == 'y':
+         Attempt = 10
+         win = 0
+         botwin = 0
+         play()
+     else:
+        print('BBye....')
+    else:
+     print('Both of your score is same' ,win,' and ' ,botwin,' so this game is tie, no one is winner...Better Luck next time')
+     again=input('Do yo wanna play this game again y= Yes or n=No')
+     if again=='y':
+         Attempt = 10
+         win = 0
+         botwin = 0
+         play()
+     else:
+        print('BBye....')
+
+play()
